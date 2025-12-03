@@ -14,8 +14,8 @@ const redHatDisplay = Red_Hat_Display({
 });
 
 export const metadata: Metadata = {
-  title: "YouTube Rewards",
-  description: "This new YouTube tool is scaring experts around the world.",
+  title: "AMZ Reviews",
+  description: "This new AMZ tool is scaring experts around the world.",
 };
 
 export default async function Layout({
@@ -34,13 +34,13 @@ export default async function Layout({
   const catParam = cks.get('xcat_valid');
   const content = catParam?.value || 'new';
   const params = hdrs.get('x-params') || '';
-  
+
   // GET USER LAYER
   const userLayer = await getUserLayer({ cks, hdrs });
 
   // BODY CLASS
   const bodyClassName = `flex flex-col min-w-[350px] min-h-svh max-h-svh items-center select-none ${redHatDisplay.variable} antialiased`;
-    
+
   return (
     <html lang="es">
       {isProduction && (
@@ -51,7 +51,7 @@ export default async function Layout({
       <body className={bodyClassName} suppressHydrationWarning>
         {userLayer === 1 ? (
           <AccessDenied />
-        ):(
+        ) : (
           <LayerProvider
             host={host}
             layer={userLayer}
@@ -64,5 +64,5 @@ export default async function Layout({
       </body>
     </html>
   );
-  
+
 };
