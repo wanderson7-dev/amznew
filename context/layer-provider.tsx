@@ -1,8 +1,5 @@
 "use client";
 
-import Start from "@/components/pages/black/new/start";
-import Quiz from "@/components/pages/black/new/quiz";
-import Video from "@/components/pages/black/new/video";
 import { createContext, useContext, ReactNode, useState, useEffect } from "react";
 
 // BALANCE VARIATIONS
@@ -14,17 +11,7 @@ const balances: Record<string, Record<number, number>> = {
     3: 204,
     4: 204,
     5: 204,
-  },
-};
-
-// ROUTES VARIATIONS
-const routes: Record<string, Record<number, React.ReactNode>> = {
-  "new": {
-    0: <Start />,
-    1: <Quiz />,
-    2: <Quiz />,
-    3: <Quiz />,
-    4: <Video />,
+    6: 204,
   },
 };
 
@@ -40,7 +27,6 @@ type LayerContext = {
   setPage: (page: number) => void,
   active: boolean,
   setActive: (active: boolean) => void,
-  pageContent: React.ReactNode,
   balanceModal: boolean,
   withdrawModal: boolean,
   setBalanceModal: (balanceModal: boolean) => void,
@@ -76,9 +62,6 @@ export function LayerProvider({
   // SET LINKS
   const frontLink = 'https://app.monetizze.com.br/checkout/KSS450366';
   const promoLink = 'app.monetizze.com.br/checkout/DEB367058';
-
-  // SET PAGE CONTENT
-  const pageContent = routes[content][page];
 
   // PLAY SOUND
   const handlePlaySound = () => {
@@ -143,7 +126,6 @@ export function LayerProvider({
     setPage,
     active,
     setActive,
-    pageContent,
     balanceModal,
     withdrawModal,
     setBalanceModal,

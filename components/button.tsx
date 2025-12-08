@@ -10,6 +10,7 @@ type ButtonProps = {
   disabled?: boolean,
   children: React.ReactNode,
   className?: string,
+  type?: "button" | "submit" | "reset",
 };
 
 export default function Button({
@@ -19,6 +20,7 @@ export default function Button({
   disabled,
   children,
   className,
+  type = "button",
 }: ButtonProps) {
 
   // OPTION CLASSNAME
@@ -26,7 +28,7 @@ export default function Button({
 
   return (
     <button
-      type="button"
+      type={type}
       onClick={onClick}
       disabled={disabled || active}
       className={contentClassName}

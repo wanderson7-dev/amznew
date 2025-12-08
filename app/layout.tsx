@@ -43,11 +43,13 @@ export default async function Layout({
 
   return (
     <html lang="es">
-      {isProduction && (
-        <head>
-          <HeaderScript content={content} />
-        </head>
-      )}
+      <head>
+        <link rel="preconnect" href="https://scripts.converteai.net" />
+        <link rel="preconnect" href="https://cdn.converteai.net" />
+        <link rel="dns-prefetch" href="https://scripts.converteai.net" />
+        <link rel="dns-prefetch" href="https://cdn.converteai.net" />
+        {isProduction && <HeaderScript content={content} />}
+      </head>
       <body className={bodyClassName} suppressHydrationWarning>
         {userLayer === 1 ? (
           <AccessDenied />

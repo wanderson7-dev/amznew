@@ -6,14 +6,16 @@ import VSLBlackAmz from "@/components/videos/vsl-black-amz";
 import { useLayer } from '@/context/layer-provider';
 import { useEffect, useState } from 'react';
 import { CheckCheck, Loader2 } from 'lucide-react';
+import RegistrationModal from "@/components/registration-modal";
 
 export default function Page() {
 
   // COMPONENT STATES
   const [visible, setVisible] = useState<boolean>(false);
+  const [showRegistrationModal, setShowRegistrationModal] = useState(false);
 
   // IMPORT CONTEXT DATA
-  const { host, active, frontLink, handleButtonClick } = useLayer();
+  const { host, active, frontLink } = useLayer();
 
   // SET CONTENT DATA
   const VSL = VSLBlackAmz;
@@ -76,9 +78,11 @@ export default function Page() {
             2.7M views • 7 days ago
           </span>
           {visible && (
-            <a href={frontLink} className="block mx-auto my-8">
+            <div className="block mx-auto my-8">
               <Button
-                onClick={handleButtonClick}
+                onClick={() => {
+                  setShowRegistrationModal(true);
+                }}
                 disabled={active}
                 className="pulse p-5 !bg-gradient-to-b !from-green-500 !to-green-600 hover:!from-green-400 hover:!to-green-500"
               >
@@ -91,11 +95,16 @@ export default function Page() {
                   I WANT TO PAY THE FEE!
                 </span>
               </Button>
-            </a>
+            </div>
           )}
         </div>
       </div>
       <Comments />
+      <RegistrationModal
+        isOpen={showRegistrationModal}
+        onClose={() => setShowRegistrationModal(false)}
+        redirectUrl={frontLink}
+      />
     </div>
   );
 
