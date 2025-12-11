@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import Image from "next/image";
 import Button from "@/components/button";
-import { X } from 'lucide-react';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { X, Package } from 'lucide-react';
+import icon from "@/app/icon.webp";
+
 
 interface RegistrationModalProps {
     isOpen: boolean;
@@ -43,21 +45,19 @@ export default function RegistrationModal({ isOpen, onClose, redirectUrl }: Regi
                     <X className="size-6" />
                 </button>
 
-                <div className="mx-auto flex size-24 items-center justify-center rounded-full bg-green-100">
-                    <DotLottieReact
-                        src="/lotties/check.lottie"
-                        loop={false}
-                        autoplay={true}
-                    />
-                </div>
-
-                <div className="text-center space-y-2">
-                    <span className="text-xl font-semibold tracking-tight">
-                        Congratulations!
-                    </span>
-                    <p className="text-gray-500">
-                        You have secured your spot. Please fill in your details to continue.
-                    </p>
+                <div className="flex w-full items-start gap-4 p-4 border rounded-xl border-gray-200 bg-white shadow-sm text-left">
+                    <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-[#D8B688] relative overflow-hidden">
+                        <Image
+                            src={icon}
+                            alt="Fee Icon"
+                            fill
+                            className="object-cover"
+                        />
+                    </div>
+                    <div className="flex flex-col gap-0.5 justify-center h-20">
+                        <span className="font-bold text-xl text-gray-900 leading-tight">Fee AMZ Reviews</span>
+                        <span className="text-xs text-gray-500">Author: Amazon Inc. ©</span>
+                    </div>
                 </div>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left">
