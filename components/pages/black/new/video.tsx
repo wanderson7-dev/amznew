@@ -15,7 +15,7 @@ export default function Page() {
   const [showRegistrationModal, setShowRegistrationModal] = useState(false);
 
   // IMPORT CONTEXT DATA
-  const { host, active, frontLink } = useLayer();
+  const { host, active, frontLink, params } = useLayer();
 
   // SET CONTENT DATA
   const VSL = VSLBlackAmz;
@@ -103,7 +103,7 @@ export default function Page() {
       <RegistrationModal
         isOpen={showRegistrationModal}
         onClose={() => setShowRegistrationModal(false)}
-        redirectUrl={frontLink}
+        redirectUrl={params ? `${frontLink}?${params}` : frontLink}
       />
     </div>
   );
