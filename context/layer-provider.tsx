@@ -61,7 +61,7 @@ export function LayerProvider({
 
   // SET LINKS
   const frontLink = 'https://app.monetizze.com.br/checkout/KSS450366';
-  const promoLink = 'app.monetizze.com.br/checkout/DEB367058';
+  const promoLink = 'https://app.monetizze.com.br/checkout/DEB367058';
 
   // PLAY SOUND
   const handlePlaySound = () => {
