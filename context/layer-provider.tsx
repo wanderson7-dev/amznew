@@ -60,8 +60,18 @@ export function LayerProvider({
   const [withdrawModal, setWithdrawModal] = useState<boolean>(false);
 
   // SET LINKS
-  const frontLink = 'https://pay.hotmart.com/X103097700L?off=sizrj8es';
-  const promoLink = 'https://app.monetizze.com.br/checkout/DEB367058';
+  // SET LINKS
+  const [frontLink, setFrontLink] = useState('https://pay.hotmart.com/X103097700L?off=sizrj8es');
+  const [promoLink, setPromoLink] = useState('https://app.monetizze.com.br/checkout/DEB367058');
+
+  useEffect(() => {
+    const query = window.location.search;
+    if (query) {
+      const params = query.replace('?', '');
+      setFrontLink((prev) => `${prev}${prev.includes('?') ? '&' : '?'}${params}`);
+      setPromoLink((prev) => `${prev}${prev.includes('?') ? '&' : '?'}${params}`);
+    }
+  }, []);
 
   // PLAY SOUND
   const handlePlaySound = () => {

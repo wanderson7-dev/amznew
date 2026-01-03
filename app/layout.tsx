@@ -48,6 +48,12 @@ export default async function Layout({
         <link rel="preconnect" href="https://cdn.converteai.net" />
         <link rel="dns-prefetch" href="https://scripts.converteai.net" />
         <link rel="dns-prefetch" href="https://cdn.converteai.net" />
+        <script
+          src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+          data-utmify-prevent-subids
+          async
+          defer
+        ></script>
         {isProduction && <HeaderScript content={content} />}
       </head>
       <body className={bodyClassName} suppressHydrationWarning>
