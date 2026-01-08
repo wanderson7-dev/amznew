@@ -61,7 +61,7 @@ export function LayerProvider({
 
   // SET LINKS
   // SET LINKS
-  const [frontLink, setFrontLink] = useState('https://pay.hotmart.com/X103097700L?off=sizrj8es');
+  const [frontLink, setFrontLink] = useState('https://pay.hotmart.com/W103699028G?off=79hnbzcr');
   const [promoLink, setPromoLink] = useState('https://app.monetizze.com.br/checkout/DEB367058');
 
   useEffect(() => {
